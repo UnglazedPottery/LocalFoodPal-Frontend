@@ -34,7 +34,10 @@ class DetailCard extends React.Component {
                 <p><strong>Schedule: </strong>{market.Schedule.replace("<br> <br> <br>", "")}</p>
                 <p><strong>Products: </strong>{market.Products}</p>
                 <a href={market.GoogleLink}>Get Directions</a>
-                <p>write review button</p>
+                <form onSubmit={(e) => this.props.handleReview(e)}>
+                    <input type="text" placeholder="Write a review..." />
+                    <input type="submit" />
+                </form>
                 <p>reviews</p>
                 <button onClick={()=>this.props.switchPage("directory-page")}>back</button>
             </div>

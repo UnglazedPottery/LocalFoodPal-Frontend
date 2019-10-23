@@ -7,8 +7,8 @@ class DirectoryPage extends React.Component {
 
     state = {
         zip: "",
-        markets: []
-
+        markets: [],
+        
     }
 
     fetchStuff = (e) => {
@@ -26,6 +26,8 @@ class DirectoryPage extends React.Component {
             zip: e.target.value
           })
     }
+
+    
 
     render() {
         return (
