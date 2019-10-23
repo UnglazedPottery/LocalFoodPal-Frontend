@@ -30,10 +30,22 @@ class DetailCard extends React.Component {
                 <p><strong>Schedule: </strong>{market.Schedule.replace("<br> <br> <br>", "")}</p>
                 <p><strong>Products: </strong>{market.Products}</p>
                 <p>map</p>
-                <button onClick={()=>this.props.switchPage("write-review", market.id, this.props.name)}>write review</button>
-                <p>reviews</p>
-                <button onClick={()=>this.props.switchPage("directory-page")}>back</button>
-            </div>
+
+                {this.props.user ?
+                    <div>
+                        <button onClick={() => this.props.switchPage("write-review", market.id, this.props.name)}>write review</button>
+                    </div>
+                    :
+                    <div>
+                        <p>Log in to write a review</p>
+                    </div>
+                }
+
+            
+
+            <p>reviews</p>
+            <button onClick={() => this.props.switchPage("directory-page")}>back</button>
+            </div >
         )
     }
 

@@ -11,7 +11,8 @@ class App extends Component {
   state = {
     currentPage: 'directory-page',
     id: 0,
-    marketName: ""
+    marketName: "",
+    user: null
   }
 
   switchPage = (page, id, name) => {
@@ -22,30 +23,48 @@ class App extends Component {
     })
   }
 
+  logout = () => {
+    this.setState({user: null})
+  }
+
+  setUser = (username) => {
+    this.setState({user: username})
+  }
+
+
   render() {
     let CurrentPage;
     if (this.state.currentPage === 'directory-page') {
-      CurrentPage = <DirectoryPage switchPage={this.switchPage} markets={this.state.markets}/>
+      CurrentPage = <DirectoryPage switchPage={this.switchPage} markets={this.state.markets} />
     }
     if (this.state.currentPage === 'login') {
-      CurrentPage = <LoginPage switchPage={this.switchPage}/>
+      CurrentPage = <LoginPage switchPage={this.switchPage} setUser={this.setUser}/>
     }
     if (this.state.currentPage === 'signup') {
-      CurrentPage = <SignupPage switchPage={this.switchPage}/>
+      CurrentPage = <SignupPage switchPage={this.switchPage} setUser={this.setUser}/>
     }
     if (this.state.currentPage === 'show') {
-      CurrentPage = <DetailCard switchPage={this.switchPage} id={this.state.id} name={this.state.marketName}/>
+      CurrentPage = <DetailCard switchPage={this.switchPage} id={this.state.id} name={this.state.marketName} user={this.state.user}/>
     }
     if (this.state.currentPage === 'write-review') {
-      CurrentPage = <ReviewForm switchPage={this.switchPage} name={this.state.marketName}/>
+      CurrentPage = <ReviewForm switchPage={this.switchPage} name={this.state.marketName} />
     }
     return (
       <div >
         <div className="center">LocalFood Pal</div>
         <div className="right">
-          <button onClick={()=>this.props.switchPage("login")}>Login</button>
-          <button onClick={()=>this.props.switchPage("signup")}>Create Account</button>
-        </div>
+          { this.state.user ?
+          <div>
+            <p>Logged in as {this.state.user}</p>
+            <button onClick={() => this.logout()}>Logout</button>
+            </div>
+            :
+            <div>
+            <button onClick={() => this.switchPage("login")}>Login</button>
+            <button onClick={() => this.switchPage("signup")}>Create Account</button>
+            </div>
+          }
+          </div>
         {CurrentPage}
       </div>
     )
