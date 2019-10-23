@@ -1,6 +1,9 @@
+
 .center {
+  background-color: #0AA90F;
   text-align: center;
   font-size: 40px;
+  font-family: cursive;
   font-weight: bold
 }
 
@@ -9,13 +12,14 @@
 }
 
 .market-card {
-  background-color: #282c34;
+  background-color: #0AA90F;
   display: flex;
   flex-direction: column;
-  color: white;
+  color: 0AA90F;
   font-size: small;
+  font-family: cursive;
   border-style: solid;
-  border-color: white;
+  border-color: black;
   border-width: medium;
   padding-right: 15px;
   padding-left: 15px;
@@ -26,9 +30,11 @@
 }
 
 .detail-card {
+  background-color: #0AA90F;
   border-style: solid;
   border-color: black;
   border-width: medium;
+  font-family: cursive;
 }
 
 

@@ -1,3 +1,8 @@
+import 'bootstrap/dist/css/bootstrap.css';
+
+import {Jumbotron} from 'reactstrap';
+
+
 import React, { Component } from "react";
 import "./App.css";
 import DirectoryPage from "./components/DirectoryPage";
@@ -41,6 +46,7 @@ class App extends Component {
     }
     return (
       <div >
+        
         <div className="center">LocalFood Pal</div>
         <div className="right">
           <button onClick={()=>this.props.switchPage("login")}>Login</button>
