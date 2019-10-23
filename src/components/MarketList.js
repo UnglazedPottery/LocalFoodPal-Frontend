@@ -9,7 +9,7 @@ class MarketList extends React.Component {
         console.log("markets", this.props.markets)
         return (
             <div className="market-list">
-				<h1>Markets Near You</h1>
+				<h2>Markets Near You</h2>
 				<div >
 					{this.props.markets.map(market => {
 						return <MarketCard market={market} viewMarket={this.props.viewMarket} key={market.id} 

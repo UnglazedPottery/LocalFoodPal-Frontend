@@ -30,7 +30,7 @@ class DetailCard extends React.Component {
                 <p><strong>Schedule: </strong>{market.Schedule.replace("<br> <br> <br>", "")}</p>
                 <p><strong>Products: </strong>{market.Products}</p>
                 <p>map</p>
-                <p>write review button</p>
+                <button onClick={()=>this.props.switchPage("write-review", market.id, this.props.name)}>write review</button>
                 <p>reviews</p>
                 <button onClick={()=>this.props.switchPage("directory-page")}>back</button>
             </div>
