@@ -29,7 +29,7 @@ class DetailCard extends React.Component {
         return (
             <div
                 className="detail-card" key={market.id}>
-                <h1>{this.props.name}</h1>
+                <h1>{this.props.name.slice(4)}</h1>
                 <p><strong>Address: </strong>{market.Address}</p>
                 <p><strong>Schedule: </strong>{market.Schedule.replace("<br> <br> <br>", "")}</p>
                 <p><strong>Products: </strong>{market.Products}</p>
@@ -39,7 +39,7 @@ class DetailCard extends React.Component {
                     <input type="submit" />
                 </form>
                 <p>reviews</p>
-                <button onClick={()=>this.props.switchPage("directory-page")}>back</button>
+                <button onClick={()=>this.props.switchPage("directory-page")}>Back</button>
             </div>
         )
     }
