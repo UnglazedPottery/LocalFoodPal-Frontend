@@ -24,6 +24,15 @@ class App extends Component {
     })
   }
 
+
+  handleReview = (e) =>{
+    e.preventDefault()
+    // this.setState({
+    //     reviews: this.state.reviews.push(e.target.value)
+    // })
+    console.log('you wrote a review:', e.target.value)
+}
+
   logout = () => {
     this.setState({ user: null })
   }
@@ -34,6 +43,7 @@ class App extends Component {
 
 
   render() {
+    console.log('reviews:', this.state.reviews)
     let CurrentPage;
     if (this.state.currentPage === 'directory-page') {
       CurrentPage = <DirectoryPage switchPage={this.switchPage} markets={this.state.markets} />
@@ -45,6 +55,7 @@ class App extends Component {
       CurrentPage = <SignupPage switchPage={this.switchPage} setUser={this.setUser} />
     }
     if (this.state.currentPage === 'show') {
+
       CurrentPage = <DetailCard switchPage={this.switchPage} id={this.state.id} name={this.state.marketName} user={this.state.user} />
     }
     if (this.state.currentPage === 'write-review') {

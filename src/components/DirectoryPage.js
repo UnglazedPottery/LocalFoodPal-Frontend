@@ -26,6 +26,8 @@ class DirectoryPage extends React.Component {
           })
     }
 
+    
+
     render() {
         return (
             <div >
