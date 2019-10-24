@@ -25,7 +25,7 @@ class LoginPage extends React.Component {
             .then(resp => resp.json())
             .then(user => {
                 if (user.success) {
-                    this.props.setUser(user.username)   //?
+                    this.props.setUser(user.username, user.id)   //?
                     this.props.switchPage('directory-page')
                 } else {
                     this.setState({ error: true })
