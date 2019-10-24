@@ -30,14 +30,15 @@ class DetailCard extends React.Component {
             return <h1>Loading...</h1>
         }
         let reviews = this.state.reviews.filter(review=> review.market_id == this.props.id)
+
         return (
             <div
                 className="detail-card" key={market.id}>
-                <h1>{this.props.name}</h1>
+                <h1>{this.props.name.slice(4)}</h1>
                 <p><strong>Address: </strong>{market.Address}</p>
                 <p><strong>Schedule: </strong>{market.Schedule.replace("<br> <br> <br>", "")}</p>
                 <p><strong>Products: </strong>{market.Products}</p>
-                <a href={market.GoogleLink}>Google Map</a>
+                <button onClick={()=> window.open(market.GoogleLink)}>Get Directions</button>
 
                 {this.props.user ?
                     <div>
