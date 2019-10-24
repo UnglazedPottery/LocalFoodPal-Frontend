@@ -66,15 +66,6 @@ class App extends Component {
             </div>
           }
 
-          {this.state.id ?
-            <div>
-              <p>market id: {this.state.id}</p>
-            </div>
-            :
-            <div>
-              <p>market id falsey</p>
-            </div>
-          }
         </div>
         {CurrentPage}
       </div>

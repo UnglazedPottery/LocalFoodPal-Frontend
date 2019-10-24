@@ -37,7 +37,7 @@ class DetailCard extends React.Component {
                 <p><strong>Address: </strong>{market.Address}</p>
                 <p><strong>Schedule: </strong>{market.Schedule.replace("<br> <br> <br>", "")}</p>
                 <p><strong>Products: </strong>{market.Products}</p>
-                <p>map</p>
+                <a href={market.GoogleLink}>Google Map</a>
 
                 {this.props.user ?
                     <div>
@@ -45,13 +45,13 @@ class DetailCard extends React.Component {
                     </div>
                     :
                     <div>
-                        <p>Log in to write a review</p>
+                        <p className="error">Log in to write a review</p>
                     </div>
                 }
 
 
 
-                <p>reviews</p>
+                <p>Reviews:</p>
                 <div >
                     {reviews.map(review => {
                         return <ReviewCard review={review} key={review.id}/>

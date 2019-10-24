@@ -7,7 +7,7 @@ class ReviewCard extends React.Component {
         let { review } = this.props;
         return (
             <div
-                className="detail-card" key={review.id}>
+                className="review-card" key={review.id}>
                 <h2>{review.content}</h2>
             </div>
         )
