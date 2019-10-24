@@ -33,7 +33,7 @@ class DetailCard extends React.Component {
                 <p><strong>Address: </strong>{market.Address}</p>
                 <p><strong>Schedule: </strong>{market.Schedule.replace("<br> <br> <br>", "")}</p>
                 <p><strong>Products: </strong>{market.Products}</p>
-                <p onClick={()=> window.open(market.GoogleLink)}><strong>Get Directions</strong></p>
+                <button onClick={()=> window.open(market.GoogleLink)}><strong>Get Directions</strong></button>
                 <form onSubmit={(e) => this.props.handleReview(e)}>
                     <input type="text" placeholder="Write a review..." />
                     <input type="submit" />

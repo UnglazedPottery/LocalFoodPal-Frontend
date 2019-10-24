@@ -9,7 +9,7 @@ class MarketCard extends React.Component {
             <div
                 className="market-card" key={market.id}
                 onClick={() => switchPage("show", market.id, market.marketname)}>
-                <h2>{market.marketname}</h2>
+                <h2>{market.marketname.slice(4)}</h2>
             </div>
         )
     }
