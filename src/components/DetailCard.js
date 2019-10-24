@@ -1,12 +1,12 @@
 import React from "react";
 import "../App.css";
-import DOMPurify from 'dompurify'; 
-
+import ReviewCard from "./ReviewCard";
 
 class DetailCard extends React.Component {
 
     state = {
-        market: null
+        market: null,
+        reviews: []
     }
 
     componentDidMount() {
@@ -16,6 +16,12 @@ class DetailCard extends React.Component {
                 console.log(x.marketdetails)
                 return this.setState({ market: x.marketdetails })
             })
+        
+        fetch('http://localhost:3002/reviews')
+            .then(resp => resp.json())
+            .then(reviews => {
+                return this.setState({ reviews: reviews })
+            })
     }
 
     render() {
@@ -24,8 +30,8 @@ class DetailCard extends React.Component {
         if (market === null) {
             return <h1>Loading...</h1>
         }
-        //replace br in schedule with spaces 
-        console.log(market)
+        let reviews = this.state.reviews.filter(review=> review.market_id == this.props.id)
+
         return (
             <div
                 className="detail-card" key={market.id}>
@@ -41,6 +47,29 @@ class DetailCard extends React.Component {
                 <p>reviews</p>
                 <button onClick={()=>this.props.switchPage("directory-page")}>Back</button>
             </div>
+                <p>map</p>
+
+                {this.props.user ?
+                    <div>
+                        <button onClick={() => this.props.switchPage("write-review", this.props.id, this.props.name)}>write review</button>
+                    </div>
+                    :
+                    <div>
+                        <p>Log in to write a review</p>
+                    </div>
+                }
+
+
+
+                <p>reviews</p>
+                <div >
+                    {reviews.map(review => {
+                        return <ReviewCard review={review} key={review.id}/>
+                    })}
+                </div><br />
+
+                <button onClick={() => this.props.switchPage("directory-page")}>back</button>
+            </div >
         )
     }
 

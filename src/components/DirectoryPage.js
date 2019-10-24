@@ -7,8 +7,7 @@ class DirectoryPage extends React.Component {
 
     state = {
         zip: "",
-        markets: [],
-        
+        markets: []
     }
 
     fetchStuff = (e) => {
@@ -34,6 +33,8 @@ class DirectoryPage extends React.Component {
             <div >
                 <EnterZipBox switchPage={this.props.switchPage} handleZip={this.handleZip} fetchStuff={this.fetchStuff}/>
                 <MarketList switchPage={this.props.switchPage}  markets={this.state.markets}/>
+            
+                
             </div>
         )
     }
